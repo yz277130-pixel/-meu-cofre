@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080f2a">
+  <meta name="description" content="Transforme sua economia em conquistas com o Meu Cofre.">
+  <title>Meu Cofre — Economizar é uma conquista</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <style>
+    :root{--bg:#070d24;--panel:#111c40;--panel2:#182650;--line:#354777;--gold:#ffc75b;--gold2:#ff9f28;--green:#35e58b;--muted:#aeb9dd;--white:#f7f8ff}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 12% 12%,#27396b 0,transparent 28%),radial-gradient(circle at 90% 55%,#163c55 0,transparent 28%),linear-gradient(145deg,#080e27,#070b1d 70%);padding:18px}
+    button,input{font:inherit} button{cursor:pointer}
+    .app{max-width:1050px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:8px 0 22px}
+    .brand{display:flex;align-items:center;gap:13px}.logo{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;font-size:29px;background:linear-gradient(145deg,#ffe28a,#e98a17);box-shadow:0 8px 28px #ffb52d55}
+    h1{font-size:clamp(24px,4vw,34px);margin:0}.tag{color:var(--muted);margin-top:4px;font-size:14px}.top-actions{display:flex;gap:8px}
+    .btn{border:1px solid var(--line);border-radius:13px;padding:11px 15px;color:var(--white);background:#18254b}.btn:hover{filter:brightness(1.15)}.btn.gold{color:#372000;font-weight:800;border:0;background:linear-gradient(135deg,#ffe58d,#f4a52d);box-shadow:0 7px 22px #f5a52d30}.btn.small{padding:8px 11px;font-size:13px}
+    .hero{display:grid;grid-template-columns: .85fr 1.15fr;gap:18px;align-items:stretch}.pig-card,.card{background:linear-gradient(145deg,#192750dd,#101a39ee);border:1px solid #344775;border-radius:24px;box-shadow:0 18px 45px #0004,inset 0 1px #ffffff12}
+    .pig-card{min-height:290px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:24px}.pig{font-size:115px;filter:drop-shadow(0 13px 10px #0008);line-height:1.2}.coin{position:absolute;font-size:30px;filter:drop-shadow(0 4px 8px #ffbd3a66)}.coin.a{left:13%;bottom:22%}.coin.b{right:13%;bottom:27%}.pig-caption{color:#ffe2a0;font-weight:700;text-align:center;margin-top:9px}
+    .goal{padding:23px}.eyebrow{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}.goal-line{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:8px 0 5px}.saved{font-size:clamp(29px,5vw,43px);font-weight:850;letter-spacing:-1px}.percent{font-size:25px;color:var(--green);font-weight:850}.sub{color:var(--muted);font-size:14px}.progress{height:17px;border-radius:20px;background:#344477;margin:16px 0 11px;overflow:hidden;box-shadow:inset 0 2px 5px #0005}.bar{height:100%;width:0;background:linear-gradient(90deg,#20d879,#8af6a9);border-radius:20px;box-shadow:0 0 18px #42ed9b88;transition:width .4s}.goal-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:14px;color:#d6def8}.edit-goal{margin-top:17px;display:flex;gap:9px}.edit-goal input{min-width:0;width:100%}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:17px 0}.stat{padding:18px}.stat-icon{font-size:24px}.stat strong{display:block;font-size:25px;margin:6px 0}.stat span{color:var(--muted);font-size:13px}
+    .columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{padding:21px}.card h2{font-size:19px;margin:0 0 15px}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.quick button{padding:10px 4px;border-radius:12px;background:#202f5b;border:1px solid #405582;color:white;font-weight:700}.quick button:hover{border-color:var(--gold);color:var(--gold)}
+    .field{display:flex;gap:9px;margin:10px 0}.field input,.edit-goal input{width:100%;min-width:0;padding:12px 13px;border-radius:12px;border:1px solid #405582;background:#09132e;color:white;outline:none}.field input:focus,.edit-goal input:focus{border-color:var(--gold)}
+    .full{width:100%;padding:14px;margin-top:3px}.notice{border:1px solid #8d672d;background:#513a1c55;border-radius:14px;padding:12px 14px;color:#ffe3a7;font-size:13px;margin-top:12px}
+    .achievement-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.achievement{border:1px solid #344775;background:#0c1734;border-radius:15px;padding:12px;display:flex;gap:10px;align-items:center;min-height:70px}.achievement .medal{font-size:27px;filter:grayscale(1);opacity:.45}.achievement.unlocked{border-color:#b98a38;background:linear-gradient(130deg,#533b1d66,#122043)}.achievement.unlocked .medal{filter:none;opacity:1}.achievement b{font-size:13px;display:block}.achievement small{color:var(--muted)}
+    .history{margin-top:16px}.history-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.deposit{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #34416a}.deposit:last-child{border:0}.deposit b{display:block}.deposit small{color:var(--muted)}.amount{font-weight:800;color:var(--green);white-space:nowrap}.empty{color:var(--muted);text-align:center;padding:18px}
+    footer{text-align:center;color:#8997bf;font-size:12px;padding:24px 0 8px}.modal{position:fixed;inset:0;background:#020617cc;display:none;place-items:center;padding:18px;z-index:5}.modal.show{display:grid}.modal-box{width:min(420px,100%);padding:22px;border-radius:20px;background:#142044;border:1px solid #50618e;box-shadow:0 20px 60px #0009}.modal-box h2{margin-top:0}.modal-box input{width:100%;padding:12px;border-radius:10px;background:#09132e;color:white;border:1px solid #405582;margin:7px 0 13px}.modal-actions{display:flex;gap:8px;justify-content:flex-end}
+    @media(max-width:720px){body{padding:13px}.hero{grid-template-columns:1fr}.pig-card{min-height:190px}.pig{font-size:82px}.coin{font-size:23px}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:20px}.columns{grid-template-columns:1fr}.top{align-items:flex-start}.top-actions .btn{font-size:12px;padding:9px}.quick{grid-template-columns:repeat(4,1fr)}}
+    @media(max-width:390px){.stats{grid-template-columns:1fr}.stat{display:flex;align-items:center;gap:12px}.stat strong{margin:0}.achievement-list{grid-template-columns:1fr}.quick button{font-size:12px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="logo">🐷</div><div><h1>Meu Cofre</h1><div class="tag">Economizar também é uma conquista!</div></div></div>
+    <div class="top-actions"><button class="btn small" id="exportBtn">Exportar dados</button><button class="btn small" id="importBtn">Importar</button><input type="file" id="importFile" accept="application/json" hidden></div>
+  </header>
+
+  <section class="hero">
+    <div class="pig-card"><span class="coin a">🪙</span><span class="coin b">🪙</span><div class="pig">🐷</div><div class="pig-caption">Seu esforço está virando conquista!</div></div>
+    <div class="card goal">
+      <div class="eyebrow">🎯 Minha meta</div>
+      <div class="goal-line"><div class="saved" id="saved">R$ 0,00</div><div class="percent" id="percent">0%</div></div>
+      <div class="sub">de <b id="goalLabel">R$ 5.000,00</b> guardados</div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="goal-foot"><span id="remaining">Faltam R$ 5.000,00</span><span id="goalStatus">Vamos começar!</span></div>
+      <div class="edit-goal"><input type="number" id="goalInput" min="1" step="0.01" placeholder="Nova meta (R$)"><button class="btn gold" id="saveGoal">Alterar meta</button></div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="card stat"><div class="stat-icon">🏆</div><div><strong id="points">0 pts</strong><span>Minha pontuação</span></div></div>
+    <div class="card stat"><div class="stat-icon">📅</div><div><strong id="monthDeposits">0</strong><span>Depósitos neste mês</span></div></div>
+    <div class="card stat"><div class="stat-icon">🔥</div><div><strong id="streak">0 meses</strong><span>Sequência de meses</span></div></div>
+  </section>
+
+  <section class="columns">
+    <div class="card">
+      <h2>💰 Adicionar depósito</h2>
+      <div class="sub">Registre aqui cada valor que você guardar na sua conta.</div>
+      <div class="quick">
+        <button data-amount="10">R$ 10</button><button data-amount="20">R$ 20</button><button data-amount="30">R$ 30</button><button data-amount="50">R$ 50</button>
+      </div>
+      <div class="field"><input id="amount" type="number" min="0.01" step="0.01" placeholder="Outro valor (R$)"></div>
+      <div class="field"><input id="depositDate" type="date"></div>
+      <div class="field"><input id="note" type="text" maxlength="70" placeholder="Observação (opcional)"></div>
+      <button class="btn gold full" id="addDeposit">＋ Registrar depósito</button>
+      <div class="notice" id="monthlyNotice">Seu compromisso: guardar algum valor todos os meses, mesmo que seja R$ 10.</div>
+    </div>
+    <div class="card">
+      <h2>🎖️ Minhas conquistas</h2>
+      <div class="achievement-list" id="achievements"></div>
+    </div>
+  </section>
+
+  <section class="card history">
+    <div class="history-head"><h2>📜 Histórico de depósitos</h2><button class="btn small" id="clearBtn">Limpar histórico</button></div>
+    <div id="history"><div class="empty">Seus depósitos aparecerão aqui.</div></div>
+  </section>
+  <footer>Seus dados ficam salvos neste aparelho/navegador. O Meu Cofre não movimenta dinheiro.</footer>
+</div>
+
+<div class="modal" id="confirmModal"><div class="modal-box"><h2>Limpar histórico?</h2><p class="sub">Isso apagará os depósitos e a pontuação deste aparelho. Exporte seus dados antes, se quiser guardar uma cópia.</p><div class="modal-actions"><button class="btn" id="cancelClear">Cancelar</button><button class="btn gold" id="confirmClear">Apagar tudo</button></div></div></div>
+
+<script>
+const KEY='meu-cofre-v1';
+const money=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(Number(n)||0);
+const today=()=>new Date().toISOString().slice(0,10);
+let state={goal:5000,deposits:[]};
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&Array.isArray(s.deposits))state={goal:Number(s.goal)||5000,deposits:s.deposits};}catch(e){}}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render();}
+function total(){return state.deposits.reduce((s,d)=>s+Number(d.amount),0);}
+function monthKey(d){return d.slice(0,7);}
+function monthCount(){const m=today().slice(0,7);return state.deposits.filter(d=>monthKey(d.date)===m).length;}
+function streak(){const months=new Set(state.deposits.map(d=>monthKey(d.date)));let cursor=new Date();let key=cursor.toISOString().slice(0,7);let count=0;if(!months.has(key)){cursor.setMonth(cursor.getMonth()-1);key=cursor.toISOString().slice(0,7);}while(months.has(key)&&count<120){count++;cursor.setMonth(cursor.getMonth()-1);key=cursor.toISOString().slice(0,7);}return count;}
+function unlocked(){const t=total(), m=monthCount(), s=streak();return [
+ ['🌱','Primeiro depósito','Registre seu primeiro valor',state.deposits.length>0],
+ ['🪙','R$ 100 guardados','Acumule R$ 100',t>=100],
+ ['💰','R$ 500 guardados','Acumule R$ 500',t>=500],
+ ['🏅','R$ 1.000 guardados','Acumule R$ 1.000',t>=1000],
+ ['🎯','Meta alcançada','Chegue à sua meta',t>=state.goal],
+ ['📆','Mês em dia','Faça um depósito neste mês',m>0],
+ ['🔥','3 meses seguidos','Mantenha a sequência',s>=3],
+ ['👑','R$ 5.000 guardados','Acumule R$ 5.000',t>=5000]
+];}
+function render(){
+ const t=total(),p=Math.floor(t/state.goal*100),pct=Math.min(100,p),left=Math.max(0,state.goal-t);
+ document.getElementById('saved').textContent=money(t);document.getElementById('goalLabel').textContent=money(state.goal);
+ document.getElementById('percent').textContent=p+'%';document.getElementById('bar').style.width=pct+'%';
+ document.getElementById('remaining').textContent=left?`Faltam ${money(left)}`:'🎉 Meta alcançada!';
+ document.getElementById('goalStatus').textContent=t>=state.goal?'Você conseguiu!':'Continue no seu ritmo';
+ document.getElementById('points').textContent=Math.floor(t)+' pts';document.getElementById('monthDeposits').textContent=monthCount();
+ document.getElementById('streak').textContent=streak()+' '+(streak()===1?'mês':'meses');
+ const has=monthCount()>0;document.getElementById('monthlyNotice').textContent=has?'✅ Você já registrou um depósito neste mês. Continue firme!':'📌 Ainda não há depósito registrado neste mês. Mesmo R$ 10 já contam!';
+ const a=document.getElementById('achievements');a.innerHTML='';unlocked().forEach(x=>{const el=document.createElement('div');el.className='achievement'+(x[3]?' unlocked':'');el.innerHTML=`<span class="medal">${x[0]}</span><div><b>${x[1]}</b><small>${x[2]}</small></div>`;a.appendChild(el);});
+ const h=document.getElementById('history');h.innerHTML='';
+ if(!state.deposits.length){h.innerHTML='<div class="empty">Seus depósitos aparecerão aqui.</div>';return;}
+ [...state.deposits].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id).forEach(d=>{
+  const el=document.createElement('div');el.className='deposit';
+  const left=document.createElement('div'),b=document.createElement('b'),small=document.createElement('small'),right=document.createElement('div'),amt=document.createElement('span'),del=document.createElement('button');
+  b.textContent=d.note||'Depósito realizado';small.textContent=new Date(d.date+'T12:00:00').toLocaleDateString('pt-BR');left.append(b,small);amt.className='amount';amt.textContent='+'+money(d.amount);del.className='btn small';del.textContent='Excluir';del.addEventListener('click',()=>{if(confirm('Excluir este depósito?')){state.deposits=state.deposits.filter(x=>x.id!==d.id);save();}});right.append(amt,del);el.append(left,right);h.append(el);
+ });
+}
+document.querySelectorAll('[data-amount]').forEach(b=>b.addEventListener('click',()=>document.getElementById('amount').value=b.dataset.amount));
+document.getElementById('depositDate').value=today();
+document.getElementById('addDeposit').addEventListener('click',()=>{
+ const amount=Number(document.getElementById('amount').value),date=document.getElementById('depositDate').value,note=document.getElementById('note').value.trim();
+ if(!Number.isFinite(amount)||amount<=0){alert('Digite um valor maior que zero.');return;}if(!date){alert('Escolha a data do depósito.');return;}
+ state.deposits.push({id:Date.now(),amount:Math.round(amount*100)/100,date,note});save();
+ document.getElementById('amount').value='';document.getElementById('note').value='';document.getElementById('depositDate').value=today();alert('Depósito registrado! Você ganhou '+Math.floor(amount)+' pontos. 🎉');
+});
+document.getElementById('saveGoal').addEventListener('click',()=>{const v=Number(document.getElementById('goalInput').value);if(v<=0){alert('Informe uma meta válida.');return;}state.goal=Math.round(v*100)/100;document.getElementById('goalInput').value='';save();});
+document.getElementById('clearBtn').addEventListener('click',()=>document.getElementById('confirmModal').classList.add('show'));
+document.getElementById('cancelClear').addEventListener('click',()=>document.getElementById('confirmModal').classList.remove('show'));
+document.getElementById('confirmClear').addEventListener('click',()=>{state.deposits=[];save();document.getElementById('confirmModal').classList.remove('show');});
+document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='meu-cofre-backup.json';a.click();URL.revokeObjectURL(url);});
+document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const s=JSON.parse(await f.text());if(!Array.isArray(s.deposits)||!Number(s.goal))throw Error();state={goal:Number(s.goal),deposits:s.deposits};save();alert('Dados importados!');}catch(err){alert('Não foi possível importar esse arquivo.');}e.target.value='';});
+load();render();
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
